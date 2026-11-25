@@ -18,7 +18,7 @@ def headings(lines):
             if marker and marker[1][0] == fence[0] and len(marker[1]) >= len(fence) and not marker[2].strip():
                 fence = None
             continue
-        if marker:
+        if marker and (marker[1][0] == "~" or "`" not in marker[2]):
             fence = marker[1]
             continue
         match = HEADING.match(line)
